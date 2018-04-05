@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Categories</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list padding>
+      <ion-list-header>
+          <h2>Edit existing categories:</h2>
+      </ion-list-header>
+    <ion-item>
+      <ion-label>Categories</ion-label>
+      <ion-select [(ngModel)]="currentCategory.current">
+        <ion-option *ngFor="let category of categories.categories" [value]="category">{{category.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+        <ion-label>Daily Allowance</ion-label>
+        <ion-input type="number" (ngModelChange)="allowanceChange($event)" [(ngModel)]="currentCategory.current.dailyAllowance"></ion-input>
+    </ion-item>
+</ion-list>
+<ion-list padding>
+    <ion-list-header>
+        <h2>Create a new category:</h2>
+    </ion-list-header>
+    <ion-item>
+        <ion-label>New Category</ion-label>
+        <ion-input type="text" [(ngModel)]="newCategoryName"></ion-input>
+    </ion-item>
+    <button ion-button (click)="newCategory()">Add</button>
+  </ion-list>
+</ion-content>
