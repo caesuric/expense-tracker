@@ -38,7 +38,7 @@ export class TabsPage {
       })
   }
   updateBalances() {
-      var categories = obj.params.categories.categories
+      var categories = this.params.categories.categories
       for (let category of categories) {
           category.balance += category.dailyAllowance
       }
