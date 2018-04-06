@@ -6,6 +6,7 @@ import { MyApp } from './app.component';
 
 import { ExpensesPage } from '../pages/expenses/expenses';
 import { CategoriesPage } from '../pages/categories/categories';
+import { DebugPage } from '../pages/debug/debug';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -16,6 +17,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     ExpensesPage,
     CategoriesPage,
+    DebugPage,
     TabsPage
   ],
   imports: [
@@ -28,6 +30,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     ExpensesPage,
     CategoriesPage,
+    DebugPage,
     TabsPage
   ],
   providers: [

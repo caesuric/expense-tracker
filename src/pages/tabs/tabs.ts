@@ -3,6 +3,8 @@ import { Storage } from '@ionic/storage'
 
 import {ExpensesPage} from '../expenses/expenses'
 import {CategoriesPage} from '../categories/categories'
+import {DebugPage} from '../debug/debug'
+import * as utils from '../../utils'
 
 @Component({
   templateUrl: 'tabs.html'
@@ -11,6 +13,7 @@ export class TabsPage {
 
   tab1Root = ExpensesPage;
   tab2Root = CategoriesPage;
+  tab3Root = DebugPage;
   params = {
       categories: {categories: []},
       currentCategory: {
@@ -19,6 +22,7 @@ export class TabsPage {
   }
 
   constructor(private storage: Storage) {
+      this.storage = storage
       var currentDate = new Date()
       storage.get('categories').then((categories) => {
           if (categories) {
@@ -38,9 +42,6 @@ export class TabsPage {
       })
   }
   updateBalances() {
-      var categories = this.params.categories.categories
-      for (let category of categories) {
-          category.balance += category.dailyAllowance
-      }
+      utils.updateBalances(this.params.categories.categories, this.storage)
   }
 }
